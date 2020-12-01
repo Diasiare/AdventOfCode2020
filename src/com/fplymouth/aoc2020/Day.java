@@ -3,19 +3,23 @@ package com.fplymouth.aoc2020;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 public abstract class Day {
 
     protected String getInput(String name) {
+        return String.join("\n", getInputAsLines(name));
+    }
+
+    protected List<String> getInputAsLines(String name) {
         try {
-            return String.join("\n", Files.readAllLines(Path.of("input", name)));
+            return Files.readAllLines(Path.of("input", name));
         } catch (IOException e) {
             System.err.println(e);
             System.exit(1);
-            return "Unreachable";
+            return List.of();
         }
     }
-
 
     public abstract String part1();
     public String part2() {
