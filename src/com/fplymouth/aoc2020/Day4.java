@@ -9,7 +9,9 @@ public class Day4 extends Day {
     public String part1() {
         String input = getInput("Day4.txt");
         String[] passportStrings = input.split("\n\n");
-        return "" + Arrays.stream(passportStrings).map(Passport::new).filter(Passport::isValidPPorId).count();
+        return "" + Arrays.stream(passportStrings).map(Passport::new)
+            .filter(Passport::isValidPPorId)
+            .count();
     }
 
     public String part2() {
