@@ -21,6 +21,14 @@ public abstract class Day {
         }
     }
 
+    protected void print(int v) {
+        print(Integer.toString(v));
+    }
+
+    protected void print(String s) {
+        System.out.println(s);
+    }
+
     public abstract String part1();
     public String part2() {
         return "Not finished";
