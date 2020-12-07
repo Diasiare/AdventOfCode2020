@@ -5,10 +5,11 @@ import com.fplymouth.aoc2020.Day3;
 import com.fplymouth.aoc2020.Day4;
 import com.fplymouth.aoc2020.Day5;
 import com.fplymouth.aoc2020.Day6;
+import com.fplymouth.aoc2020.Day7;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Day currentDay = new Day6();
+        Day currentDay = new Day7();
         System.out.println(currentDay.part1());
         System.out.println(currentDay.part2());
     }
