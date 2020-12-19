@@ -52,17 +52,24 @@ public class Day19 extends Day {
             String[] s = line.split(":");
             rules.put(Integer.parseInt(s[0]), s[1].trim());
         }
+        // This relies on special knowledge that:
         // 0: 8 11
-        rules.put(8, "42 | 42 8");
-        rules.put(11, "42 31 | 42 11 31");
+        // 8: 42 | 42 8
+        // 11: 42 31 | 42 11 31
+        // which describes a sequence matching 42 n times then 31 m times where:
+        // n > 2 and m > 1
+        // and n > m
 
         String rule42expr = toRegex(rules.get(42), rules);
         String rule31expr = toRegex(rules.get(31), rules);
-        int count = 0;
+        int maxLength = messages.stream().mapToInt(String::length).max().getAsInt();
         List<Pattern> p = new ArrayList<>();
-        for (int i = 2; i < 1000; i++) {
+        // Assume rule 31 and 42 always match at least one character.
+        for (int i = 2; i < maxLength; i++) {
             p.add(Pattern.compile(rule42expr + "{" + i +"}" + rule31expr + "{1," + (i - 1) + "}"));
         }
+
+        int count = 0;
         for (String message: messages) {
             boolean found = false;
             for (Pattern pattern: p) {
