@@ -11,6 +11,7 @@ import com.fplymouth.aoc2020.Day17;
 import com.fplymouth.aoc2020.Day18;
 import com.fplymouth.aoc2020.Day19;
 import com.fplymouth.aoc2020.Day2;
+import com.fplymouth.aoc2020.Day20;
 import com.fplymouth.aoc2020.Day3;
 import com.fplymouth.aoc2020.Day4;
 import com.fplymouth.aoc2020.Day5;
@@ -21,7 +22,7 @@ import com.fplymouth.aoc2020.Day9;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Day currentDay = new Day19();
+        Day currentDay = new Day20();
         System.out.println(currentDay.part1());
         System.out.println(currentDay.part2());
     }
